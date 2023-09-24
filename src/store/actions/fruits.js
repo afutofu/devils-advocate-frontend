@@ -1,10 +1,10 @@
+import api from "../../api";
 import * as actions from "./actionTypes";
-import axios from "axios";
 
 export function fetchFruits() {
   return (dispatch) => {
     dispatch(fetchFruitsBegin());
-    axios
+    api
       .get("/api/fruits")
       .then((res) => dispatch(fetchFruitsSuccess(res.data)))
       .catch((error) => dispatch(fetchFruitsFail(error)));

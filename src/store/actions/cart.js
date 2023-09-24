@@ -1,6 +1,6 @@
-import axios from "axios";
 import * as actions from "./actionTypes";
 import tokenConfig from "../../shared/tokenConfig";
+import api from "../../api";
 
 export const storeCart = (cart) => {
   return {
@@ -11,7 +11,7 @@ export const storeCart = (cart) => {
 
 export const addFruit = (userId, fruitId) => (dispatch, getState) => {
   return new Promise(function (resolve, reject) {
-    axios
+    api
       .post(`/api/users/${userId}/cart`, { fruitId }, tokenConfig(getState))
       .then((res) => {
         dispatch(addFruitSuccess(fruitId));
@@ -32,7 +32,7 @@ const addFruitSuccess = (id) => {
 
 export const removeFruit = (userId, fruitId) => (dispatch, getState) => {
   return new Promise(function (resolve, reject) {
-    axios
+    api
       .delete(`/api/users/${userId}/cart/${fruitId}`, tokenConfig(getState))
       .then((res) => {
         dispatch(removeFruitSuccess(fruitId));
@@ -53,7 +53,7 @@ const removeFruitSuccess = (id) => {
 
 export const addFruitAmt = (userId, fruitId) => (dispatch, getState) => {
   return new Promise(function (resolve, reject) {
-    axios
+    api
       .patch(
         `/api/users/${userId}/cart/${fruitId}`,
         { type: "ADD" },
@@ -78,7 +78,7 @@ const addFruitAmtSuccess = (id) => {
 
 export const removeFruitAmt = (userId, fruitId) => (dispatch, getState) => {
   return new Promise(function (resolve, reject) {
-    axios
+    api
       .patch(
         `/api/users/${userId}/cart/${fruitId}`,
         { type: "REMOVE" },

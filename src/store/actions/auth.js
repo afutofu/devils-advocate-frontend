@@ -1,13 +1,13 @@
 import * as actions from "./actionTypes";
-import axios from "axios";
 import tokenConfig from "../../shared/tokenConfig";
 import { storeCart } from "./cart";
+import api from "../../api";
 
 // Check token & fetch user
 export const fetchUser = () => (dispatch, getState) => {
   return new Promise(function (resolve, reject) {
     dispatch(fetchUserBegin());
-    axios
+    api
       .get("/api/auth/user", tokenConfig(getState))
       .then((res) => {
         const user = res.data;
@@ -62,7 +62,7 @@ export const login = (email, password) => {
 export const attemptLogin = (email, password) => (dispatch) => {
   return new Promise(function (resolve, reject) {
     dispatch(attemptLoginBegin());
-    return axios
+    return api
       .post("/api/auth", { email, password })
       .then((res) => {
         const { user } = res.data;
@@ -112,7 +112,7 @@ export const logout = () => {
 export const attemptRegister = (username, email, password) => {
   return (dispatch) => {
     dispatch(attemptRegisterBegin());
-    return axios
+    return api
       .post("/api/users", {
         username: username,
         email: email,
