@@ -1,6 +1,8 @@
 # Devil's Advocate
 
-Website Link: [Devil's Advocate](https://devils-advocate-afu.herokuapp.com/)
+Website Link: [Devil's Advocate](https://devils-advocate-afu.netlify.app/)
+
+Backend Repository: [devils-advocate-backend](https://github.com/afutofu/devils-advocate-backend)
 
 An e-commerce website selling 'devil fruits' from the 'One Piece' series. Data scraped from a third party site, complete with a cart system and authentication.
 
