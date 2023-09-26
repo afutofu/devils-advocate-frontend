@@ -1,6 +1,6 @@
 # Devil's Advocate
 
-Website Link: [Devil's Advocate](https://devils-advocate-afu.netlify.app/)
+Website Link: [Devil's Advocate](https://devils-advocate-afuza.netlify.app/)
 
 Backend Repository: [devils-advocate-backend](https://github.com/afutofu/devils-advocate-backend)
 
